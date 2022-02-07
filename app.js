@@ -1,64 +1,61 @@
-const firstName="hardik";
-const lastName="sinha"
-const age=24;
-const str='hello there my name is hardik';
-const tags= 'web designs, web development, programming';
+// Create some Arrays
+const number= [43,67,8,45,28,5];
+const number2 = new Array(22,33,44,55,66);
+const fruit = ['banana','orange', 'apple','pear'];
+const mixed = [22,'apple', true, undefined, null, {a:1, b:1}, new Date()];
 
 let val;
 
-val= firstName + lastName ;
+//Get array length
+val= number.length;
 
-//CONCATENATION
-val= firstName + ' ' + lastName;
+//Check if it array
+val= Array.isArray(number); //true
 
-//APPEND
-val='hardik';
-val += 'sinha';
+//Get single value
+val= number[3]; //45
 
-//ESCAPING
-val ='that\'s awesome. i can\'t wait'
+//Insert into Array
+number[2]= 99; // (6) [43, 67, 99, 45, 28, 5]
 
-//CONCAT()
-val = firstName.concat(' ', lastName); // hardik sinha
+//Find index of value
+val= number.indexOf(28)
 
-//CHANGE CASE
-val = firstName.toUpperCase();
-val = firstName.toLowerCase();
+//MUTATING ARRAYS
+//ADD ON TO THE END
+number.push(20) //  (7) [43, 67, 99, 45, 28, 5, 20]
 
-//INDEXOF()
-val= firstName.indexOf('r')
-val= firstName.lastIndexOf('i') // it gives last occuring specified value in string
+//ADD ON TO THE FRONT
+number.unshift(120) // (8) [120, 43, 67, 99, 45, 28, 5, 20]
 
-//charAt()
-val= firstName.charAt('2')
-// Get last char
-val= firstName.charAt(firstName.length- 1) // gives last character
+//TAKE OFF FROM BACK
+number.pop() // 20 gets popped out of array
 
-//substring()
-// syntax= string.substring(start, end) 
-//end position (up to, but not including)
-val = firstName.substring(0,4) // hard
+//TAKE OFF FROM FRONT
+number.shift(); // 120 gets popped out of array
 
-//slice()
-//it extract a part of string. The slice() method returns the extracted part in a new string
-// syntax= string.substring(start, end) 
-//end position (up to, but not including)
-val =firstName.slice(0,4); //hard
-val =firstName.slice(-3); // it slices reversly
+// SPLICE VALUES
+// number.splice(1,3)// it means i want to remove index start from 1 and ends to 3 only
 
-//split()
-//The split() method splits a string into an array of substrings.
+//REVERSE
+number.reverse();// (6) [5, 28, 45, 99, 67, 43]
 
-// The split() method returns the new array.
+//CONCATENATE Arrays
+val= number.concat(number2) //(11) [5, 28, 45, 99, 67, 43, 22, 33, 44, 55, 66]
 
-// The split() method does not change the original string.
+// Sorting Arrarys
+val= fruit.sort();// (4) ['apple', 'banana', 'orange', 'pear']
+val= number.sort(); // (6) [28, 43, 45, 5, 67, 99] if you could see it is sorted as of 1st digit of arrays are in increasing order
 
-// If (" ") is used as separator, the string is split between words.
- val = str.split(' ');// (6) ['hello', 'there', 'my', 'name', 'is', 'hardik']
+//Use the "compare function"
+val= number.sort(function(x,y){
+    return x-y; //(6) [5, 28, 43, 45, 67, 99]
+})
 
-//  replace()
-val = str.replace('hardik', 'hd'); //hello there my name is hd
+//reverse sorting
+val= number.sort(function(x,y){
+    return y-x;  // (6) [99, 67, 45, 43, 28, 5]
+})
 
-//include()
-val = str.includes('hello') //it check whether str is having hello or not
+console.log(number)
 console.log(val)
