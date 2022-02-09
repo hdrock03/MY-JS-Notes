@@ -1,19 +1,65 @@
-let val;
+//Function declaration
+function greet(){
+    console.log('hello');
+}
+greet(); // hello
 
-var today = new Date();// Tue Feb 08 2022 15:17:39 GMT+0530 (India Standard Time)
-let birthday = new Date('9-10-81 11:33:27')
-birthday = new Date('Septmber 10 1981');
-birthday = new Date('9/10/1981')
+function greet(){
+    return 'hello';
+}
+greet();//  not give any output in console
+console.log(greet()); // hello
 
-// var today = new Date('1-1-2017')// it give month as 0 becoz january starts with 0 and december ends with 11
-val=today.getMonth();
-val= today.getDate();
-val= today.getDay();// if today is wednesday it will give 3 becoz sunday starts with 0
-val=today.getFullYear();// 2022
-val= today.getTime();// it will give how many seconds passed from jan 1st of current year
+//Passing Arguments
+function greet(firstname, lastname){
+    return 'hello ' + firstname + ' '+  lastname ;
+}
+
+console.log(greet ('hardik','sinha'))  // hello hardik sinha
+
+// passing default values
+function greet(firstname="hardik",lastname='name'){
+    return 'hello ' + firstname + ' '+  lastname ;
+}
+
+console.log(greet()); // hello hardik sinha  here we are not passing any parameter but in function only we set the default values
 
 
-birthday.setMonth(2);// it will set month to march
-birthday.setDate(12);
-birthday.setFullYear(1989)
-console.log(birthday)
+//Function Expressions
+const square =function(x){
+    return x*x;
+
+}
+
+console.log(square(3)) // 9
+
+//IMMIDIATELY INVOKABLE FUNCTION EXPRESSION - IIFEs
+//The function that declare and run at the same time.
+
+// (function(){
+//     console.log('IIFE Ran..');
+//   })();
+
+// (function(name){
+//     console.log('hello ' + name);
+// })('hardik');
+
+//Property Methods
+
+const todo ={
+    add: function(){
+        console.log('add todo')
+    },
+    edit: function(id){
+        console.log('edit done ' + id)
+    }
+
+}
+
+todo.delete =function(){
+    console.log('delete todo')
+}
+
+todo.add(); // add todo
+todo.edit(3); //edit done 3
+todo.delete(); // delete todo
