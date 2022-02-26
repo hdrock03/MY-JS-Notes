@@ -1,24 +1,31 @@
-let val;
+//Create Element
+const li= document.createElement('li'); // li
 
-const list =document.querySelector('ul.collection');// it will select all the five list items
-const listItem = document.querySelector('li.collection-item:first-child');
+// Add Class
+li.className ='collection-item'; // li.collection-item , This adds class name to it
 
-val=listItem
+// Add Id
+li.id = 'new-item'; // li#new-item.collection-item
+
+//Add Attribute
+li.setAttribute('title','New Item');
+
+//Create text node and append(it will add the hello world inside li)
+li.appendChild(document.createTextNode('hello world'));
+
+//Create new link element
+const link = document.createElement('a');
+//Add Classes
+link.className= "delete-item secondary-content";
+//Add icon
+link.innerHtml='<i class="fa fa-remove"></i>';
+//Append link to lo
+li.appendChild(link);
 
 
-val= list.children[3].children;
-// val = list.childNodes[0] // text
-// val = list.childNodes[0].nodeName // text
-// val = list.childNodes[0].nodeType // 3
+//Append li as child to ul
+document.querySelector('ul.collection').appendChild(li);// hello world is created just like list item is there in ui
 
-val=list.firstChild// #text
-val=list.firstElementChild // li.collection-item
+console.log(li);
 
-val=list.lastChild // #text
-val=list.childElementCount // li.collection-item
-
-val = listItem.parentNode // ul.collection
-val = listItem.previousSibling //#text 
-val = listItem.previousSibling.previousSibling// null becoz before first list item there is no value
-console.log(val)
 
