@@ -1,23 +1,24 @@
-//Loop though array
-const cars=['ford','tata','mahindra','honda'];
+let val;
 
-for(let i=0; i<cars.length; i++){
-    console.log(cars[i]);
-}
+const list =document.querySelector('ul.collection');// it will select all the five list items
+const listItem = document.querySelector('li.collection-item:first-child');
 
-cars.forEach(function(car , index, array){
-    console.log(`${index} : ${car}`);
-})
+val=listItem
 
-const users =[
-    {id:1 , name:'john'},
-    {id:2 , name:'jack'},
-    {id:3 , name:'mickry'},
-    {id:4 , name:'sam'}
-]
 
-const ids=users.map(function(user){
-    return user.id;
-})
+val= list.children[3].children;
+// val = list.childNodes[0] // text
+// val = list.childNodes[0].nodeName // text
+// val = list.childNodes[0].nodeType // 3
 
-console.log(ids)
+val=list.firstChild// #text
+val=list.firstElementChild // li.collection-item
+
+val=list.lastChild // #text
+val=list.childElementCount // li.collection-item
+
+val = listItem.parentNode // ul.collection
+val = listItem.previousSibling //#text 
+val = listItem.previousSibling.previousSibling// null becoz before first list item there is no value
+console.log(val)
+
