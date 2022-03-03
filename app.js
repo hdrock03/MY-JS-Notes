@@ -1,31 +1,46 @@
-//Create Element
-const li= document.createElement('li'); // li
-
-// Add Class
-li.className ='collection-item'; // li.collection-item , This adds class name to it
-
-// Add Id
-li.id = 'new-item'; // li#new-item.collection-item
-
-//Add Attribute
-li.setAttribute('title','New Item');
-
-//Create text node and append(it will add the hello world inside li)
-li.appendChild(document.createTextNode('hello world'));
-
-//Create new link element
-const link = document.createElement('a');
-//Add Classes
-link.className= "delete-item secondary-content";
-//Add icon
-link.innerHtml='<i class="fa fa-remove"></i>';
-//Append link to lo
-li.appendChild(link);
 
 
-//Append li as child to ul
-document.querySelector('ul.collection').appendChild(li);// hello world is created just like list item is there in ui
+//Creating Elements
+const newHeading=document.createElement('h2');
+//Add id
+newHeading.id= 'task-title';
+//new text node
+newHeading.appendChild(document.createTextNode('Task List'));// <h2 id="task-title">Task List </h2>
 
-console.log(li);
+//get the old heading
+const oldHeading =document.getElementById('task-title');
+//Parent (we select this becoz we need to do operations on child)
+const cardAction = document.querySelector('.card-action');
+
+//Replace Element
+cardAction.replaceChild(newHeading , oldHeading); 
+
+//Remove Element
+const lis= document.querySelectorAll('li');
+const list = document.querySelector('ul')
+
+//Remove list item
+lis[0].remove(); //it will remove the index 0 list item
+
+//Remove child ELement
+list.removeChild(lis[3])
 
 
+//Classes
+const firstLi =document.querySelector('li:first-child');
+
+console.log(firstLi.children[0]);
+
+val = link.className;
+val = link.classList;
+val = link.classList[0];
+link.classList.add('test'); // adding class
+link.classList.remove('test');
+
+
+
+//Attributes
+val = link.getAttribute('href');
+val = link.setAttribute('href','http://google.com')
+
+console.log(val);
