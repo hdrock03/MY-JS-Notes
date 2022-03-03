@@ -1,41 +1,33 @@
-document.querySelector('.clear-tasks').addEventListener('click',function(e){
-    console.log('hello world');
+const clearBtn = document.querySelector('.clear-tasks');
+const card = document.querySelector('.card');
+const heading = document.querySelector('h5');
 
-    
-})
+// Click
+//clearBtn.addEventListener('click', runEvent); // EVENT TYPE: click
 
-document.querySelector('.clear-tasks').addEventListener('click',onclick);
+//DoubleClick
+//clearBtn.addEventListener('dblclick', runEvent); // EVENT TYPE: dblclick
 
-// e is just an event nothing else
-function onclick(e){
-    // console.log('clicked');
+//Mousedown
+//clearBtn.addEventListener('mousedown', runEvent); //EVENT TYPE: mousedown , just click and it will give
 
-    let val;
+//Mouseup
+// clearBtn.addEventListener('mouseup', runEvent); //EVENT TYPE: mouseup , just click and hold and when we leave the hold then it will give
 
-    val = e;
+//Mouseenter
+//clearBtn.addEventListener('mouseenter', runEvent); // EVENT TYPE: mouseenter , just hover the cursor into the targeted element(i.e. clear button)
 
-    
-    console.log(val); // PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+//Mouseleave
+clearBtn.addEventListener('mouseleave', runEvent);// EVENT TYPE: mouseleave
 
-    // Event target element
-    val = e.target; // it will give that actual element which we are targeting. here we are targeting button (clear tasks)
-    val = e.target.id;// it will give id associated with it, since here no id so no result
-    val = e.target.className; // clear-tasks btn black, these are classes associated with it
+//Mouseover
+clearBtn.addEventListener('mouseover', runEvent);
 
+//Mouseout
+clearBtn.addEventListener('mouseout', runEvent);
 
-    //Event type
-    val= e.type; // click, since it has type click if it is written there mouseover then it would have shown mouseover
-
-    //Timestamp
-    val = e.timeStamp;// it will give time
-
-    //Coordinate event relative to the window
-    val= e.clientY;
-    val= e.clientX;
-
-    //Coordinate event relative to the element
-    val= e.offsetY;
-    val= e.offsetX;
-
-    console.log(val);//
+//Mousemove
+clearBtn.addEventListener('mousemove', runEvent);// clearbtn ke under jitna mouse ghumayange utna baar likhayega
+function runEvent(e){
+    console.log(`EVENT TYPE: ${e.type}`); 
 }
