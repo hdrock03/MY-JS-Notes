@@ -1,33 +1,36 @@
-const clearBtn = document.querySelector('.clear-tasks');
-const card = document.querySelector('.card');
+const form = document.querySelector('form');
+const taskInput= document.getElementById('task');
 const heading = document.querySelector('h5');
 
-// Click
-//clearBtn.addEventListener('click', runEvent); // EVENT TYPE: click
+//Clear input
+taskInput.value = ''; // this will clear the watever value is inside 
 
-//DoubleClick
-//clearBtn.addEventListener('dblclick', runEvent); // EVENT TYPE: dblclick
+//Keydown
+//taskInput.addEventListener('keydown', runEvent); // it fires when we click something there
 
-//Mousedown
-//clearBtn.addEventListener('mousedown', runEvent); //EVENT TYPE: mousedown , just click and it will give
+//Keyup
+//taskInput.addEventListener('keyup', runEvent);
 
-//Mouseup
-// clearBtn.addEventListener('mouseup', runEvent); //EVENT TYPE: mouseup , just click and hold and when we leave the hold then it will give
+//Keypress
+//taskInput.addEventListener('keypress', runEvent);
 
-//Mouseenter
-//clearBtn.addEventListener('mouseenter', runEvent); // EVENT TYPE: mouseenter , just hover the cursor into the targeted element(i.e. clear button)
+//focus
+//taskInput.addEventListener('focus', runEvent);// when we click it will focus it
 
-//Mouseleave
-clearBtn.addEventListener('mouseleave', runEvent);// EVENT TYPE: mouseleave
+// blur
+taskInput.addEventListener('blur', runEvent);// opposite of focus
 
-//Mouseover
-clearBtn.addEventListener('mouseover', runEvent);
+//cut
+taskInput.addEventListener('cut', runEvent); // when we cut anything from targeted element
 
-//Mouseout
-clearBtn.addEventListener('mouseout', runEvent);
-
-//Mousemove
-clearBtn.addEventListener('mousemove', runEvent);// clearbtn ke under jitna mouse ghumayange utna baar likhayega
+//paste
+taskInput.addEventListener('paste', runEvent); // when we paste anything
 function runEvent(e){
-    console.log(`EVENT TYPE: ${e.type}`); 
+    console.log(`EVENT TYPE: ${e.type}`); // yeh type bta dega jb bhi event occur hga
+
+ // get something on webpage
+ //console.log(e.target.value);// watever you write inside targeted element it will simultaneously shows in console too
+
+ //heading.innerText = e.target.value; // watever we type it will show on webpage
 }
+
