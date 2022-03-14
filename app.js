@@ -1,36 +1,36 @@
-const form = document.querySelector('form');
-const taskInput= document.getElementById('task');
-const heading = document.querySelector('h5');
+//EVENT BUBBLING
 
-//Clear input
-taskInput.value = ''; // this will clear the watever value is inside 
+// document.querySelector('.card-title').addEventListener('click',function(){
+//     console.log('card title');
+// });
 
-//Keydown
-//taskInput.addEventListener('keydown', runEvent); // it fires when we click something there
+// document.querySelector('.card-content').addEventListener('click',function(){
+//     console.log('card content');
+// });
 
-//Keyup
-//taskInput.addEventListener('keyup', runEvent);
+// document.querySelector('.card').addEventListener('click',function(){
+//     console.log('card');
+// });
 
-//Keypress
-//taskInput.addEventListener('keypress', runEvent);
+// document.querySelector('.col').addEventListener('click',function(){
+//     console.log('col');
+// });
 
-//focus
-//taskInput.addEventListener('focus', runEvent);// when we click it will focus it
+//EVENT DELEGATION
 
-// blur
-taskInput.addEventListener('blur', runEvent);// opposite of focus
+const delItem = document.querySelector('.delete-item');
 
-//cut
-taskInput.addEventListener('cut', runEvent); // when we cut anything from targeted element
+delItem.addEventListener('click', deleteItem);
 
-//paste
-taskInput.addEventListener('paste', runEvent); // when we paste anything
-function runEvent(e){
-    console.log(`EVENT TYPE: ${e.type}`); // yeh type bta dega jb bhi event occur hga
+// function deleteItem
 
- // get something on webpage
- //console.log(e.target.value);// watever you write inside targeted element it will simultaneously shows in console too
+function deleteItem(e){
+    // if(e.target.parentElement.className === 'delete-item secondary-content'){
+    //     console.log('delete item'); // it will work on only first link rest all link it wont console anything
+    // }
 
- //heading.innerText = e.target.value; // watever we type it will show on webpage
+    if(e.target.parentElement.classList.contains('delete-item')) {
+        console.log('delete item'); // it will work on only first link rest all link it wont console anything
+        e.target.parentElement.parentElement.remove();
+    }
 }
-
