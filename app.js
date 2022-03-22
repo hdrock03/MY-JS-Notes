@@ -1,35 +1,27 @@
-//People Constructor
-function Person(firstName , lastName){
-    this.firstName = firstName;
-    this.lastName = lastName;
+class Person{
+    constructor(firstName, lastName, dob){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthday = new Date (dob);
+    }
+
+    greeting(){
+        return `Hello there ${this.firstName} ${this.lastName}`
+    }
+
+    calculateAge(){
+        const diff = date.now() - this.birthday.getTime();
+        const ageDate = new Date(diff);
+        return Math.abs(ageDate.getUTCFullYear() - 1970)
+    }
+
+    getsMarried(newLastName){
+        this.lastName = newLastName;
+    }
 }
 
-// Greeting
-Person.prototype.greeting = function(){
-    return `Hello there ${this.firstName} ${this.lastName}`;
-}
+const mary = new Person('Mary','Williams','11-13-1998');
 
-const person1 = new Person('John' , 'Doe');
+mary.getsMarried('Thompson')// Person {firstName: 'Mary', lastName: 'Thompson', birthday: Fri Nov 13 1998 00:00:00 GMT+0530 (India Standard Time)}
 
-console.log(person1.greeting()); // Hello there John Doe
-
-//Customer Constructor
- function Customer(firstName, lastName, phone, membership){
-    Person.call(this,firstName,lastName); //Person.call se uska property le liye jaise firstname and lastname and this nh rhega to aayega nh dono chiz
-    
-    this.phone = phone;
-    this.membership = membership;
- }
- // Inherit the person prototype methods
-
- Customer.prototype = Object.create(Person.prototype)
-
- //create customer
- const customer1 = new Customer('tom','smith','55555555','standard');
-
- console.log(customer1);// Customer {firstName: 'tom', lastName: 'smith', phone: '55555555', membership: 'standard'}
-
-//  console.log(customer1.greeting()) ;//Uncaught TypeError: customer1.greeting is not a function, here it doesnt inherit the property
-
-
- console.log(customer1.greeting());// Hello there tom smith
+console.log(mary)
