@@ -1,36 +1,35 @@
-//EVENT BUBBLING
+// const brad = {
+//     name: 'Brad',
+//     age: 30
+// }
 
-// document.querySelector('.card-title').addEventListener('click',function(){
-//     console.log('card title');
-// });
+// console.log(brad); // {name: 'Brad', age: 30}
 
-// document.querySelector('.card-content').addEventListener('click',function(){
-//     console.log('card content');
-// });
+// console.log(brad.age); // 30
 
-// document.querySelector('.card').addEventListener('click',function(){
-//     console.log('card');
-// });
+// Person Constructor
+// costructor should start with capital letter
+// function Person() { 
+//     this.name = 'Hardik';
 
-// document.querySelector('.col').addEventListener('click',function(){
-//     console.log('col');
-// });
+// }
 
-//EVENT DELEGATION
+// const hardik = new Person(); // Person {name: 'Hardik'}
+// console.log(hardik); 
+// const sinha = new Person();  // Person {name: 'Hardik'} becoz in constructor we used this.name = Hardik
+// console.log(sinha); 
 
-const delItem = document.querySelector('.delete-item');
 
-delItem.addEventListener('click', deleteItem);
 
-// function deleteItem
+//so we need to take argument and then watever we use we will get different names
 
-function deleteItem(e){
-    // if(e.target.parentElement.className === 'delete-item secondary-content'){
-    //     console.log('delete item'); // it will work on only first link rest all link it wont console anything
-    // }
+function Person(name,age) { 
+    this.name = name;
+    this.age = age;
 
-    if(e.target.parentElement.classList.contains('delete-item')) {
-        console.log('delete item'); // it will work on only first link rest all link it wont console anything
-        e.target.parentElement.parentElement.remove();
-    }
 }
+
+const hardik = new Person('Hardik', 25 ); 
+
+const sinha = new Person('Sinha' , 32); // Person {name: 'Sinha', age: 32}
+console.log(sinha); 
