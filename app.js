@@ -1,52 +1,50 @@
-document.getElementById('button1').addEventListener('click',getText);
-document.getElementById('button2').addEventListener('click',getJson);
-document.getElementById('button3').addEventListener('click',getUrl);
-function getText(){
-    fetch('data.txt')
-    .then(function(res){
-       // console.log(res.text());//it returns promise so we need to again do .then
-       return res.text();
-    })
-    .then(function(data){
-        console.log(data); // Some plain text Data
-        document.querySelector(".output").innerHTML= data; // it will print output on screen
-    })
-}
+// NORMAL FUNCTION
+// const sayHello = function(){
+//     console.log('hello')
+// }
 
-function getJson(){
-    fetch('customer.json')
-    .then(function(data){
-        // console.log(data.json());// Promise {<pending>}
-        return data.json();
-    })
+//ARROW FUNCTION
+// const sayHello = () =>{
+//     console.log('hello')
+// }
 
-    .then(function(res){
-            console.log(res);// we will get watever is there in json
-         //   document.querySelector(".output").innerHTML= res; // it will print object object on the screen not the actual output becoz in json array is threr
-         let output = '';
-         res.forEach(function(post){
-             output += `<li>${post.title}</li>`;
+//One line function does not need braces
+// const sayHello = () => console.log('hello')
 
-         });
-         document.querySelector(".output").innerHTML= output; // it will print on screen
-        })
-    }    
+//One line returns
+// const sayHello = () => 'hello';
 
-    function getUrl(){
-        fetch('https://api.github.com/users')
-        .then(function(data){
-            // console.log(data.json());// Promise {<pending>}
-            return data.json();
-        })
-    
-        .then(function(res){
-                console.log(res);// we will get watever is there in json
-             //   document.querySelector(".output").innerHTML= res; // it will print object object on the screen not the actual output becoz in json array is threr
-             let output = '';
-             res.forEach(function(user){
-                 output += `<li>${user.login}</li>`;
-    
-             });
-             document.querySelector(".output").innerHTML= output; // it will print on screen
-            })
-        }    
+//Same as above
+// const sayHello = function() {
+//     return 'hello';
+// } 
+
+//Return Object
+// const sayHello = () => ({msg: 'hello'})//{msg: 'hello'}
+
+// const sayHello = (name) => console.log(`hello ${name}`)
+
+// sayHello('hardik')
+
+
+// const sayHello = (name,age) => console.log(`hello ${name} ${age}`)
+// sayHello('hardik', 24)
+
+//MAP FUNCTION
+const users =['Nathan', 'Mac','John'];
+
+// const nameLenghts = users.map(function(name){
+//     return name.length;
+// });
+
+// console.log(nameLenghts) // (3) [6, 3, 4]
+
+//Shorter
+// const nameLenghts = users.map((name) =>{
+//     return name.length;
+// });
+
+//Shortest
+const nameLenghts = users.map(name => name.length);
+
+console.log(nameLenghts)
