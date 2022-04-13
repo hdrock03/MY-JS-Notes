@@ -1,8 +1,20 @@
 
 
-{
-    "id": 1,
-    "name": "John Doe",
-    "company": "123 design",
-    "phone": "444-555-6666"
-}
+[
+   {
+    "title": "Post one",
+    "body": "this is post one"
+
+   } ,
+   {
+    "title": "Post two",
+    "body": "this is post one"
+
+   } ,
+   {
+    "title": "Post three",
+    "body": "this is post one"
+
+   } 
+   
+]

@@ -1,37 +1,52 @@
-const posts =[
-    {title: 'Post One' , body: 'this is post one'},
-    {title: 'Post Two' , body: 'this is post two'}
-];
-
-
-function createPost(post , callback){
-    return new Promise(function(resolve,reject){
-        setTimeout(function(){
-            posts.push(post);
-
-            const error = true;
-            if(!error){
-                resolve();
-            } else {
-                reject('Error: Something went wrong')
-            }
-        },2000);
-    });
-    
+document.getElementById('button1').addEventListener('click',getText);
+document.getElementById('button2').addEventListener('click',getJson);
+document.getElementById('button3').addEventListener('click',getUrl);
+function getText(){
+    fetch('data.txt')
+    .then(function(res){
+       // console.log(res.text());//it returns promise so we need to again do .then
+       return res.text();
+    })
+    .then(function(data){
+        console.log(data); // Some plain text Data
+        document.querySelector(".output").innerHTML= data; // it will print output on screen
+    })
 }
 
-function getPosts(){
-    setTimeout(function() {
-        let output = '';
-        posts.forEach(function(post){
-            output += `<li>${post.title} </li>`;
+function getJson(){
+    fetch('customer.json')
+    .then(function(data){
+        // console.log(data.json());// Promise {<pending>}
+        return data.json();
+    })
+
+    .then(function(res){
+            console.log(res);// we will get watever is there in json
+         //   document.querySelector(".output").innerHTML= res; // it will print object object on the screen not the actual output becoz in json array is threr
+         let output = '';
+         res.forEach(function(post){
+             output += `<li>${post.title}</li>`;
+
+         });
+         document.querySelector(".output").innerHTML= output; // it will print on screen
         })
-        document.body.innerHTML = output;
-    },1000);
-}
+    }    
 
-createPost({title:'Post Three' , body: 'this is post three'})
-.then(getPosts)
-.catch(function(err){
-console.log(err)
-})
+    function getUrl(){
+        fetch('https://api.github.com/users')
+        .then(function(data){
+            // console.log(data.json());// Promise {<pending>}
+            return data.json();
+        })
+    
+        .then(function(res){
+                console.log(res);// we will get watever is there in json
+             //   document.querySelector(".output").innerHTML= res; // it will print object object on the screen not the actual output becoz in json array is threr
+             let output = '';
+             res.forEach(function(user){
+                 output += `<li>${user.login}</li>`;
+    
+             });
+             document.querySelector(".output").innerHTML= output; // it will print on screen
+            })
+        }    
